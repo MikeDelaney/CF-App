@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 class UserCreateForm(UserCreationForm):
@@ -18,6 +18,8 @@ class UserCreateForm(UserCreationForm):
 		user.last_name = self.cleaned_data["last_name"]
 		if commit:
 			user.save()
+			g = Group.objects.get(name='std_user')
+			g.user_set.add(user)
 		return user
 
 
