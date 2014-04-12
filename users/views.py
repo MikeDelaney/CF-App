@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from users.forms import UserCreateForm, UserEditForm
 
 # Create your views here.
@@ -15,7 +15,8 @@ def index(request):
 
 @login_required
 def user_list(request):
-	user_list = User.objects.all().order_by('username')
+	group = Group.objects.get(name='std_user')
+	user_list = group.user_set.all().order_by('username')
 	return render(request, 'users/user_list.html', {'user_list': user_list})
 
 
