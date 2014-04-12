@@ -1,0 +1,20 @@
+{% load staticfiles %}
+
+<head>
+	<title>Admin Login</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}">
+</head>
+
+<body>
+	<h1>Login</h1>
+
+	<form method="POST" action="/users/login/">
+		{% csrf_token %}
+		Username: <input type="text" name="username" value="" size=30>
+		<br>
+		Password: <input type="password" name="password" value="" size=30>
+		<br>
+		<input type="submit" value="Submit">
+		<a href="/users/"><input type="button" value="Cancel"></a>
+	</form>
+</body>

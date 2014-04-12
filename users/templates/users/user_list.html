@@ -1,0 +1,24 @@
+{% load staticfiles %}
+
+<head>
+	<title>User List</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}">
+</head>
+
+<body>
+	<div id="navbar">
+		<a href="/users/logout" id="logout">Logout</a>
+	</div>
+	<h1>Users</h1>
+	<a href="/users/add_user"><input type="button" value="Add User"></a>
+	<p>Click Username to Edit</p>
+	{% if user_list %}
+		<ul>
+		{% for user in user_list %}
+			<li><a href="{% url 'users:user_edit' user.username %}">{{ user.username }}</a></li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>No users exist.</p>
+	{% endif %}
+</body>

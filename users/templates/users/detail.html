@@ -1,0 +1,19 @@
+{% load staticfiles %}
+
+<head>
+	<title>Details</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}">
+</head>
+
+<body>
+<h1>User Detail</h1>
+	<a href="/users/user_list">Back</a>
+	<p>
+		First Name: {{ user.first_name }}<br>
+		Last Name: {{ user.last_name }}<br>
+		Email: {{ user.email }}<br>
+	</p>
+	<a href="/users/user_edit"><input type="button" value="Edit/Delete"></a>
+	<!-- <input type="button" value="Edit/Delete"> -->
+	<a href="/users/logout">Logout</a>
+</body>

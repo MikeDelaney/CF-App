@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+<head>
+	{% if form_type == 'register' %}
+		<title>Registration</title>
+	{% elif form_type == 'edit' %}
+		<title>Edit User</title>
+	{% else %}
+		<title>Add User</title>
+	{% endif %}
+	<link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}">
+</head>
+
+<body>
+	<div id="navbar">
+		<a href="/users/logout" id="logout">Logout</a>
+	</div>
+	{% if form_type == 'register' %}
+		<h1>Register</h1>
+	{% elif form_type == 'edit' %}
+		<h1>Edit User</h1>
+	{% else %}
+		<h1>Add User</h1>
+	{% endif %}
+
+<form method="POST">	
+
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" id="submit" value="Submit" />
+	{% if form_type == 'register' %}
+		<a href="/users/"><input type="button" id="cancel" value="Cancel"></a>
+	{% else %}
+		<a href="/users/user_list"><input type="button" id="cancel" value="Cancel"></a>
+	{% endif %}
+	{% if form_type == 'edit' %}
+		<input type="submit" id="delete" name="delete" value="Delete User">
+	{% endif %}
+
+</form>
+</body>

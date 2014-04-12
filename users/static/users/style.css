@@ -1,0 +1,33 @@
+body {
+	font-family: Helvetica;
+	background-color: #fff;
+	color: #000;
+	margin: 0px;
+}
+
+#navbar {
+	height: 50px;
+	background-color: #000;
+	color: #999;
+}
+
+#logout {
+	color: #999;
+	text-decoration: none;
+	float: right;
+	margin-right: 50px;
+}
+
+#submit {
+	background-color: green;
+	color: white;
+}
+
+#cancel {
+	background-color: yellow;
+}
+
+#delete {
+	background-color: red;
+	color: white;
+}
