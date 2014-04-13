@@ -62,9 +62,6 @@ def user_edit(request, username):
 			return HttpResponseRedirect("/users/user_list")
 	else:
 		form = UserEditForm(instance=user)
-	# not sure where the following goes, or if it's quite right
-	# if request.POST.get('Delete User'):
-	# 	user.delete()
 	return render(request, 'users/user_form.html', {'form': form, 
 		'form_type': 'edit'})
 
