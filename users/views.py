@@ -76,13 +76,19 @@ def user_login(request):
 				login(request, user)
 				return HttpResponseRedirect('/users/user_list')
 			else:
-				return HttpResponse("Account is disabled.")
+				return HttpResponseRedirect('/users/disabled')
 		else:
-			print "Invalid login information: {0}, {1}".format(username, 
-				password)
-			return HttpResponse("Invalid login information.")
+			return HttpResponseRedirect('/users/invalid')
 	else:
 		return render(request, 'users/login.html', {})
+
+
+def disabled(request):
+	return render(request, 'users/disabled.html')
+
+
+def invalid(request):
+	return render(request, 'users/invalid.html')
 
 
 @login_required

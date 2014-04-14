@@ -6,14 +6,15 @@
 </head>
 
 <body>
-	<div id="navbar">
-		<a href="/users/logout" id="logout">Logout</a>
-	</div>
+	<ul id="nav-list">
+		<li><a href="/users/logout" id="logout">Logout</a></li>
+	</ul><br>
+
 	<h1>Users</h1>
-	<a href="/users/add_user"><input type="button" value="Add User"></a>
-	<p>Click Username to Edit</p>
+	<p>Click Username to Edit/Delete User</p>
+
 	{% if user_list %}
-		<ul>
+		<ul id="user_list">
 		{% for user in user_list %}
 			<li><a href="{% url 'users:user_edit' user.username %}">{{ user.username }}</a></li>
 		{% endfor %}
@@ -21,4 +22,7 @@
 	{% else %}
 		<p>No users exist.</p>
 	{% endif %}
+
+	<a href="/users/add_user"><input class="btn" id="add" type="button" value="Add User"></a>
+
 </body>

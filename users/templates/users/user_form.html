@@ -12,9 +12,10 @@
 </head>
 
 <body>
-	<div id="navbar">
-		<a href="/users/logout" id="logout">Logout</a>
-	</div>
+	<ul id="nav-list">
+		<li><a href="/users/logout" id="logout">Logout</a></li>
+	</ul><br>
+
 	{% if form_type == 'register' %}
 		<h1>Register</h1>
 	{% elif form_type == 'edit' %}
@@ -23,19 +24,19 @@
 		<h1>Add User</h1>
 	{% endif %}
 
-<form method="POST">	
+	<form method="POST">	
 
-	{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" id="submit" value="Submit" />
-	{% if form_type == 'register' %}
-		<a href="/users/"><input type="button" id="cancel" value="Cancel"></a>
-	{% else %}
-		<a href="/users/user_list"><input type="button" id="cancel" value="Cancel"></a>
-	{% endif %}
-	{% if form_type == 'edit' %}
-		<input type="submit" id="delete" name="delete" value="Delete User">
-	{% endif %}
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input class="btn" type="submit" id="submit" value="Submit" />
+		{% if form_type == 'register' %}
+			<a href="/users/"><input class="btn" type="button" id="cancel" value="Cancel"></a>
+		{% else %}
+			<a href="/users/user_list"><input class="btn" type="button" id="cancel" value="Cancel"></a>
+		{% endif %}
+		{% if form_type == 'edit' %}
+			<input class="btn" id="delete" type="submit" name="delete" value="Delete User">
+		{% endif %}
 
-</form>
+	</form>
 </body>
