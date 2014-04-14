@@ -20,6 +20,7 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 # probably not needed for prod.
 # with open('/etc/secret_key.txt') as f:
 #     SECRET_KEY = f.read().strip()
+SECRET_KEY = "107D6ABF8D018E1BCE6119843D505D5E9C9D529D2C871598374C65FEF21ABD11"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
