@@ -11,5 +11,5 @@ urlpatterns = patterns('',
     #url(r'^users/', include('users.urls', namespace="users")),
     url(r'^', include('users.urls', namespace="users")),
     #url(r'^admin/', include(admin.site.urls)),
-    url(r'^/admin/', include(admin.site.urls)),
+    url(r'^$/admin/', include(admin.site.urls)),
 )
