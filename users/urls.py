@@ -10,5 +10,5 @@ urlpatterns = patterns('',
 	url(r'^invalid/$', views.invalid, name='invalid'),
 	url(r'^login/$', views.user_login, name='login'),
 	url(r'^logout/$', views.user_logout, name='logout'),
-	url(r'^(?P<username>\w+)/$', views.user_edit, name='user_edit'),
+	url(r'^(?P<username>[A-Za-z0-9_.@+-]+)/$', views.user_edit, name='user_edit'),
 )
