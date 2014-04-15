@@ -23,9 +23,9 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 SECRET_KEY = "107D6ABF8D018E1BCE6119843D505D5E9C9D529D2C871598374C65FEF21ABD11"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 # Allow all host headers - use with debug set to False
 ALLOWED_HOSTS = ['*']
