@@ -25,7 +25,7 @@ class UserCreateForm(UserCreationForm):
 
 class UserEditForm(forms.ModelForm):
     first_name = forms.CharField(label="First name", max_length=30, required=True)
-    last_name = forms.CharField(label="Last name", max_length=30)
+    last_name = forms.CharField(label="Last name", max_length=30, required=False)
     email = forms.EmailField(label="E-mail Address")
     new_password1 = forms.CharField(label="New password", widget=forms.PasswordInput, required=False)
     new_password2 = forms.CharField(label="Confirm new password", widget=forms.PasswordInput, required=False)
