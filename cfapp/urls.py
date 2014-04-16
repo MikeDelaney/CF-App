@@ -8,8 +8,6 @@ urlpatterns = patterns('',
     # url(r'^$', 'cfapp.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    #url(r'^users/', include('users.urls', namespace="users")),
+    url(r'admin/', include(admin.site.urls)),
     url(r'^', include('users.urls', namespace="users")),
-    #url(r'^admin/', include(admin.site.urls)),
-    url(r'^$/admin/', include(admin.site.urls)),
 )

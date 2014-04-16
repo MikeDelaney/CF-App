@@ -10,7 +10,7 @@
 		<div id="cell">
 			<h1>Login</h1>
 
-			<form method="POST" action="/users/login/">
+			<form method="POST">
 
 				{% csrf_token %}
 				<div id="login">
@@ -20,7 +20,7 @@
 					<br>
 				</div>
 				<input class="btn" id="submit" type="submit" value="Submit">
-				<a href="/users/"><input class="btn" id="cancel" type="button" value="Cancel"></a>
+				<a href="/"><input class="btn" id="cancel" type="button" value="Cancel"></a>
 
 			</form>
 		</div>

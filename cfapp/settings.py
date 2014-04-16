@@ -18,9 +18,9 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # probably not needed for prod.
-# with open('/etc/secret_key.txt') as f:
-#     SECRET_KEY = f.read().strip()
-SECRET_KEY = "107D6ABF8D018E1BCE6119843D505D5E9C9D529D2C871598374C65FEF21ABD11"
+with open('/etc/secret_key.txt') as f:
+    SECRET_KEY = f.read().strip()
+#SECRET_KEY = "107D6ABF8D018E1BCE6119843D505D5E9C9D529D2C871598374C65FEF21ABD11"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,7 +28,7 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 # Allow all host headers - use with debug set to False
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -88,21 +88,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 # Parse database config from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+# import dj_database_url
+# DATABASES['default'] = dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Static asset config
-import os
-PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/users/static/'
+# import os
+# PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
+# STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_PATH, 'static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(PROJECT_PATH, 'static'),
+# )
 
 # Set login url
 LOGIN_URL = '/users/'

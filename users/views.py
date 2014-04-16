@@ -25,7 +25,7 @@ def register(request):
 		form = UserCreateForm(data=request.POST)
 		if form.is_valid():
 			user = form.save()
-			return HttpResponseRedirect("/users/login")
+			return HttpResponseRedirect("/login")
 		else:
 			print form.errors
 	else:
@@ -40,7 +40,7 @@ def add_user(request):
 		form = UserCreateForm(data=request.POST)
 		if form.is_valid():
 			user = form.save()
-			return HttpResponseRedirect("/users/user_list")
+			return HttpResponseRedirect("/user_list")
 		else:
 			print form.errors
 	else:
@@ -54,12 +54,11 @@ def user_edit(request, username):
 	user = get_object_or_404(User, username=username)
 	if request.method == "POST":
 		form = UserEditForm(request.POST, instance=user)
+		if request.POST.get('delete'):
+			user.delete()
 		if form.is_valid():
-			if request.POST.get('delete'):
-				user.delete()
-			else:
-				form.save()
-			return HttpResponseRedirect("/users/user_list")
+			form.save()
+		return HttpResponseRedirect("/user_list")
 	else:
 		form = UserEditForm(instance=user)
 	return render(request, 'users/user_form.html', {'form': form, 
@@ -74,11 +73,11 @@ def user_login(request):
 		if user is not None:
 			if user.is_active:
 				login(request, user)
-				return HttpResponseRedirect('/users/user_list')
+				return HttpResponseRedirect('/user_list')
 			else:
-				return HttpResponseRedirect('/users/disabled')
+				return HttpResponseRedirect('/disabled')
 		else:
-			return HttpResponseRedirect('/users/invalid')
+			return HttpResponseRedirect('/invalid')
 	else:
 		return render(request, 'users/login.html', {})
 
@@ -94,4 +93,4 @@ def invalid(request):
 @login_required
 def user_logout(request):
 	logout(request)
-	return HttpResponseRedirect('/users/')
+	return HttpResponseRedirect('/')

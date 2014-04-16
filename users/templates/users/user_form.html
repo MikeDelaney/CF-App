@@ -13,7 +13,7 @@
 
 <body>
 	<ul id="nav-list">
-		<li><a href="/users/logout" id="logout">Logout</a></li>
+		<li><a href="/logout" id="logout">Logout</a></li>
 	</ul><br>
 
 	{% if form_type == 'register' %}
@@ -30,9 +30,9 @@
 		{{ form.as_p }}
 		<input class="btn" type="submit" id="submit" value="Submit" />
 		{% if form_type == 'register' %}
-			<a href="/users/"><input class="btn" type="button" id="cancel" value="Cancel"></a>
+			<a href="/"><input class="btn" type="button" id="cancel" value="Cancel"></a>
 		{% else %}
-			<a href="/users/user_list"><input class="btn" type="button" id="cancel" value="Cancel"></a>
+			<a href="/user_list"><input class="btn" type="button" id="cancel" value="Cancel"></a>
 		{% endif %}
 		{% if form_type == 'edit' %}
 			<input class="btn" id="delete" type="submit" name="delete" value="Delete User">
